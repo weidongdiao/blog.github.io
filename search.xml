@@ -5,11 +5,11 @@
     
     <entry>
       <title><![CDATA[First Blog]]></title>
-      <url>http://localhost:4000/2017/01/14/First-Blog/</url>
+      <url>http://www.diaoweidong.com/2017/01/14/First-Blog/</url>
       <content type="html"><![CDATA[<p>第一篇博客，My first blog<br><a id="more"></a><br>这个博客主要想用来分享在web开发学习过程中个人学到的一些知识和技术，作为一个技术备忘录，随时分享一些自己在学习过程中的心得。</p>
 <p>欢迎批评指正，技术分享。</p>
 <p>My blog is used to share some knowledge and technique when I study in the field of web development.</p>
-<p>Please fell free to contact me if you have any good suggestions or share more knowledge with me.</p>
+<p>Please fell free to contact me if you have any good suggestions or share more knowledge with me. Thanks!</p>
 ]]></content>
     </entry>
     
