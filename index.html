@@ -183,7 +183,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li></ul>
                     </div>
                 </section>
                 
@@ -249,6 +249,91 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-What-is-Lazyman" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/30/What-is-Lazyman/" class="article-date">
+      <time datetime="2017-01-31T03:46:21.000Z" itemprop="datePublished">2017-01-30</time>
+</a>
+
+ 
+    <a href="/2017/01/30/What-is-Lazyman/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2017/01/30/What-is-Lazyman/" ></span>
+        
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/30/What-is-Lazyman/">What is Lazyman</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>Quote: <a href="">https://github.com/easonhan007/lazyman</a></p>
+</blockquote>
+<p>##Introduction of LazyMan</p>
+<blockquote>
+<ol>
+<li><p>Lazyman is a simple web automation test framework using selenium-webdriver, watir-webdriver, page-object and rspec.</p>
+</li>
+<li><p>Page Object: Page object abstract  each test page as a Page class and encapsulate the test objects(page element) of the page and basic test steps(logic action). In order to increase readability, reusability and consistency of code.</p>
+</li>
+<li><p>Rspect: Rspect is one of test plug-in in Ruby.</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="How-to-achieve-LazyMan"><a href="#How-to-achieve-LazyMan" class="headerlink" title="How to achieve LazyMan"></a>How to achieve LazyMan</h2><p>`<br>function _LazyMan(_name) {<br>    var _this = this;<br>    _this.tasks = [];<br>    _this.tasks.push(function() {<br>        console.log(‘Hi! This is ‘ + _name + ‘!’);<br>        // 这里的this是window，所以要缓存this<br>        _this.next();<br>    });<br>    setTimeout(function() {<br>        _this.next();<br>    }, 0);<br>}</p>
+<p>// push函数里面的this和setTimeout函数里面的this都指向全局作用域，所以要缓存当前this指向<br>_LazyMan.prototype.next = function() {<br>    var _fn = this.tasks.shift();<br>    _fn &amp;&amp; _fn();<br>}<br>_LazyMan.prototype.sleep = function(_time) {<br>    var _this = this;<br>    _this.tasks.push(function() {<br>        setTimeout(function() {<br>            console.log(‘Wake up after ‘ + _time);<br>            _this.next();<br>        }, _time);<br>    });<br>    return _this;<br>}<br>_LazyMan.prototype.sleepFirst = function(_time) {<br>    var _this = this;<br>    _this.tasks.unshift(function() {<br>        setTimeout(function() {<br>            console.log(‘Wake up after ‘ + _time);<br>            _this.next();<br>        }, _time);<br>    });<br>    return _this;<br>}<br>_LazyMan.prototype.eat = function(_eat) {<br>    var _this = this;<br>    _this.tasks.push(function() {<br>        console.log(‘Eat ‘ + _eat);<br>        _this.next();<br>    });<br>    return _this;<br>}</p>
+<p>// 封装对象<br>var LazyMan = function(_name) {<br>    return new _LazyMan(_name);<br>}<br>`</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Interview/">Interview</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-First-Blog" class="article article-type-post" itemscope itemprop="blogPost">
   

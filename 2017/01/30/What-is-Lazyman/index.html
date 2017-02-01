@@ -16,12 +16,37 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Weidong,Diao's blog">
-<meta property="og:url" content="http://www.diaoweidong.com/archives/index.html">
+<meta name="description" content="Quote: https://github.com/easonhan007/lazyman
+
+##Introduction of LazyMan
+
+
+Lazyman is a simple web automation test framework using selenium-webdriver, watir-webdriver, page-object and rspec.
+
+Page Ob">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is Lazyman">
+<meta property="og:url" content="http://www.diaoweidong.com/2017/01/30/What-is-Lazyman/index.html">
 <meta property="og:site_name" content="Weidong,Diao's blog">
+<meta property="og:description" content="Quote: https://github.com/easonhan007/lazyman
+
+##Introduction of LazyMan
+
+
+Lazyman is a simple web automation test framework using selenium-webdriver, watir-webdriver, page-object and rspec.
+
+Page Ob">
+<meta property="og:updated_time" content="2017-02-01T22:35:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Weidong,Diao's blog">
+<meta name="twitter:title" content="What is Lazyman">
+<meta name="twitter:description" content="Quote: https://github.com/easonhan007/lazyman
+
+##Introduction of LazyMan
+
+
+Lazyman is a simple web automation test framework using selenium-webdriver, watir-webdriver, page-object and rspec.
+
+Page Ob">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -51,7 +76,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives | Weidong,Diao&#39;s blog</title>
+<title>What is Lazyman | Weidong,Diao&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -61,8 +86,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -243,89 +268,174 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-What-is-Lazyman" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/01/30/What-is-Lazyman/" class="archive-article-date">
-      <time datetime="2017-01-31T03:46:21.000Z" itemprop="datePublished">01-30</time>
+    <div class="article-meta">
+      <a href="/2017/01/30/What-is-Lazyman/" class="article-date">
+      <time datetime="2017-01-31T03:46:21.000Z" itemprop="datePublished">2017-01-30</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/30/What-is-Lazyman/">What is Lazyman</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      What is Lazyman
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Interview/">Interview</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>Quote: <a href="">https://github.com/easonhan007/lazyman</a></p>
+</blockquote>
+<p>##Introduction of LazyMan</p>
+<blockquote>
+<ol>
+<li><p>Lazyman is a simple web automation test framework using selenium-webdriver, watir-webdriver, page-object and rspec.</p>
+</li>
+<li><p>Page Object: Page object abstract  each test page as a Page class and encapsulate the test objects(page element) of the page and basic test steps(logic action). In order to increase readability, reusability and consistency of code.</p>
+</li>
+<li><p>Rspect: Rspect is one of test plug-in in Ruby.</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="How-to-achieve-LazyMan"><a href="#How-to-achieve-LazyMan" class="headerlink" title="How to achieve LazyMan"></a>How to achieve LazyMan</h2><p>`<br>function _LazyMan(_name) {<br>    var _this = this;<br>    _this.tasks = [];<br>    _this.tasks.push(function() {<br>        console.log(‘Hi! This is ‘ + _name + ‘!’);<br>        // 这里的this是window，所以要缓存this<br>        _this.next();<br>    });<br>    setTimeout(function() {<br>        _this.next();<br>    }, 0);<br>}</p>
+<p>// push函数里面的this和setTimeout函数里面的this都指向全局作用域，所以要缓存当前this指向<br>_LazyMan.prototype.next = function() {<br>    var _fn = this.tasks.shift();<br>    _fn &amp;&amp; _fn();<br>}<br>_LazyMan.prototype.sleep = function(_time) {<br>    var _this = this;<br>    _this.tasks.push(function() {<br>        setTimeout(function() {<br>            console.log(‘Wake up after ‘ + _time);<br>            _this.next();<br>        }, _time);<br>    });<br>    return _this;<br>}<br>_LazyMan.prototype.sleepFirst = function(_time) {<br>    var _this = this;<br>    _this.tasks.unshift(function() {<br>        setTimeout(function() {<br>            console.log(‘Wake up after ‘ + _time);<br>            _this.next();<br>        }, _time);<br>    });<br>    return _this;<br>}<br>_LazyMan.prototype.eat = function(_eat) {<br>    var _this = this;<br>    _this.tasks.push(function() {<br>        console.log(‘Eat ‘ + _eat);<br>        _this.next();<br>    });<br>    return _this;<br>}</p>
+<p>// 封装对象<br>var LazyMan = function(_name) {<br>    return new _LazyMan(_name);<br>}<br>`</p>
+
+      
+    </div>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/01/14/First-Blog/" class="archive-article-date">
-      <time datetime="2017-01-15T03:58:50.000Z" itemprop="datePublished">01-14</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/14/First-Blog/">First Blog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li></ul>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/01/30/What-is-Lazyman/">What is Lazyman</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Weidong,Diao</a></p>
+        <p><span>发布时间:</span>2017-01-30, 22:46:21</p>
+        <p><span>最后更新:</span>2017-02-01, 17:35:17</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/01/30/What-is-Lazyman/" title="What is Lazyman">http://www.diaoweidong.com/2017/01/30/What-is-Lazyman/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.diaoweidong.com/2017/01/30/What-is-Lazyman/　　作者: Weidong,Diao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/01/14/First-Blog/">
+                    First Blog
+                </a>
+            </div>
+        
+    </nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-achieve-LazyMan"><span class="toc-number">1.</span> <span class="toc-text">How to achieve LazyMan</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
 
     
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/01/30/What-is-Lazyman/" data-title="What is Lazyman" data-url="http://www.diaoweidong.com/2017/01/30/What-is-Lazyman/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"diaoweidong"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = '/js/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
 
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/01/14/First-Blog/" title="下一篇: First Blog">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/30/What-is-Lazyman/">What is Lazyman</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/14/First-Blog/">First Blog</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
