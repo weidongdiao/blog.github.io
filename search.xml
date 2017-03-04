@@ -4,6 +4,45 @@
   
     
     <entry>
+      <title><![CDATA[Javascript brief summary]]></title>
+      <url>http://www.diaoweidong.com/2017/03/03/Javascript-brief-summary/</url>
+      <content type="html"><![CDATA[<p>Brief summary of javascript knowledge<br><a id="more"></a><br><img src="/Users/weidongdiao/Documents/keep-calm-and-learn-javascript.jpg" alt=""></p>
+<h2 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a><strong>Scope</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(function()&#123;</div><div class="line">var a = b = 5;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">console.log(b);</div></pre></td></tr></table></figure>
+<p>Result will be <figure class="highlight plain"><figcaption><span>```a``` is a local variable because it declared by ```var```. ```b``` is a global variable.</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">If in strict mode, this code will alert mistake. It should change to below:</div></pre></td></tr></table></figure></p>
+<p>(function(){<br>‘use strict’<br>var a = widow, b = 5;<br>})();</p>
+<p>console.log(b);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">## **Create &quot;Native&quot;**</div><div class="line">In the object ```string``` define a ```repeatify```function. This function can receive an integer parameter, to identify the times of repeat of character strings. This function requires identifying the times of repeating of character strings. For example:</div></pre></td></tr></table></figure></p>
+<p>console.log(‘hello’.repeatify(3));<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">It should print out ```hellohellohello```.</div><div class="line"></div><div class="line">If we want to test if a function already exists, it can use following method:</div></pre></td></tr></table></figure></p>
+<p>String.prototype.repeatify = String.prototype.repeatify || function(times)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## **Variable Hoisting**</div></pre></td></tr></table></figure></p>
+<p>function test(){<br>    console.log(a);<br>    console.log(foo());</p>
+<pre><code>var a = 1;
+function foo(){
+    return 2;
+}
+</code></pre><p>}<br>test();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">The result will be ```undefined``` and ```2```. The reason is the variable and function have been hoisted to the top of the function body. And the above code can be seen as following:</div></pre></td></tr></table></figure></p>
+<p>function test(){<br>    var a;<br>    function foo(){<br>        return 2;<br>    }</p>
+<pre><code>console.log(a);
+console.log(foo());
+
+a = 1;
+}
+</code></pre><p>test();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## ** how &quot;this&quot; work in javascript**</div></pre></td></tr></table></figure></p>
+<p>var fullname = ‘John Doe’;<br>var obj = {<br>   fullname: ‘Colin Ihrig’,<br>   prop: {<br>      fullname: ‘Aurelio De Rosa’,<br>      getFullname: function() {<br>         return this.fullname;<br>      }<br>   }<br>};</p>
+<p>console.log(obj.prop.getFullname());</p>
+<p>var test = obj.prop.getFullname;</p>
+<p>console.log(test());<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">The result will be ```Aurelio De Rosa``` and ```John Doe```. The reason is that ```this``` is quoted by function and decided by how to call function, instead of how to define.</div><div class="line"></div><div class="line">In the first result, ```getFullname()``` is the function of variable```obj.prop```. But in the second result, ```getFullname()``` is the variable of ```test```, it should be quoted by global variable ```window```. So that return ```window```&apos;s ```fullname```.</div><div class="line"></div><div class="line">## ** Closures**</div></pre></td></tr></table></figure></p>
+<p>var nodes = document.getElementsByTagName(‘button’);<br>for (var i = 0; i &lt; nodes.length; i++) {<br>   nodes[i].addEventListener(‘click’, (function(i) {<br>      return function() {<br>         console.log(‘You clicked element #’ + i);<br>      }<br>   })(i));<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">OR:</div></pre></td></tr></table></figure></p>
+<p>function handlerWrapper(i) {<br>   return function() {<br>      console.log(‘You clicked element #’ + i);<br>   }<br>}</p>
+<p>var nodes = document.getElementsByTagName(‘button’);<br>for (var i = 0; i &lt; nodes.length; i++) {<br>   nodes[i].addEventListener(‘click’, handlerWrapper(i));<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## ** Data Type**</div></pre></td></tr></table></figure></p>
+<p>console.log(typeof null);<br>console.log(typeof {});<br>console.log(typeof []);<br>console.log(typeof undefined);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">It will return:</div></pre></td></tr></table></figure></p>
+<p>object<br>object<br>object<br>undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## ** Event Loop**</div></pre></td></tr></table></figure></p>
+<p>function printing() {<br>   console.log(1);<br>   setTimeout(function() { console.log(2); }, 1000);<br>   setTimeout(function() { console.log(3); }, 0);<br>   console.log(4);<br>}<br>printing();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">It will print out:</div></pre></td></tr></table></figure></p>
+<p>1<br>4<br>3<br>2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## ** Algorithm(isPrime()?)**</div><div class="line">Given an algorithm that return ```true``` when an integer is prime number and return ```false``` when an integer is not prime number.</div></pre></td></tr></table></figure></p>
+<p>function isPrime(number) {<br>   // If your browser doesn’t support the method Number.isInteger of ECMAScript 6,<br>   // you can implement your own pretty easily<br>   if (typeof number !== ‘number’ || !Number.isInteger(number)) {<br>      // Alternatively you can throw an error.<br>      return false;<br>   }<br>   if (number &lt; 2) {<br>      return false;<br>   }</p>
+<p>   if (number === 2) {<br>      return true;<br>   } else if (number % 2 === 0) {<br>      return false;<br>   }<br>   var squareRoot = Math.sqrt(number);<br>   for(var i = 3; i &lt;= squareRoot; i += 2) {<br>      if (number % i === 0) {<br>         return false;<br>      }<br>   }<br>   return true;<br>}<br>```</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[What is LazyMan]]></title>
       <url>http://www.diaoweidong.com/2017/01/30/What-is-Lazyman/</url>
       <content type="html"><![CDATA[<p>Knowing LazyMan from an interview in WeChat, so I want to record some knowledge of LazyMan.<br><a id="more"></a></p>
