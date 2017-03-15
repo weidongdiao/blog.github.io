@@ -79,7 +79,7 @@
 <p>32 IP address：\ d+\ .\ d+\ .\ d+\ .\ d+  (It is useful to extract IP addresses)</p>
 <p>33 IP address：((?:(?:25[0-5]|2[0-4]\ \ d|[01]?\ \d?</p>
 </blockquote>
-<p>Original from <a href="">http://www.cnblogs.com/zxin/archive/2013/01/26/2877765.html</a><br>More <a href="">http://louiszhai.github.io/2016/06/13/regexp/#修饰符</a></p>
+<p>Original from <a href="">http://www.cnblogs.com/zxin/archive/2013/01/26/2877765.html</a><br>More <a href="">http://louiszhai.github.io/2016/06/13/regexp/</a></p>
 ]]></content>
     </entry>
     
