@@ -16,16 +16,16 @@
 
 
 
-<meta name="description" content="Knowing LazyMan from an interview in WeChat, so I want to record some knowledge of LazyMan.">
+<meta name="description" content="All method of regular expression including checking number, character and special requirement.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="What is LazyMan">
-<meta property="og:url" content="http://www.diaoweidong.com/2017/01/30/What-is-Lazyman/index.html">
+<meta property="og:title" content="Regular Expression">
+<meta property="og:url" content="http://www.diaoweidong.com/2017/03/14/Regular-Expression/index.html">
 <meta property="og:site_name" content="Weidong,Diao's blog">
-<meta property="og:description" content="Knowing LazyMan from an interview in WeChat, so I want to record some knowledge of LazyMan.">
-<meta property="og:updated_time" content="2017-02-01T22:44:39.000Z">
+<meta property="og:description" content="All method of regular expression including checking number, character and special requirement.">
+<meta property="og:updated_time" content="2017-03-15T00:23:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="What is LazyMan">
-<meta name="twitter:description" content="Knowing LazyMan from an interview in WeChat, so I want to record some knowledge of LazyMan.">
+<meta name="twitter:title" content="Regular Expression">
+<meta name="twitter:description" content="All method of regular expression including checking number, character and special requirement.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -55,7 +55,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>What is LazyMan | Weidong,Diao&#39;s blog</title>
+<title>Regular Expression | Weidong,Diao&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -247,11 +247,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-What-is-Lazyman" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Regular-Expression" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/01/30/What-is-Lazyman/" class="article-date">
-      <time datetime="2017-01-31T03:46:21.000Z" itemprop="datePublished">2017-01-30</time>
+      <a href="/2017/03/14/Regular-Expression/" class="article-date">
+      <time datetime="2017-03-14T22:29:34.000Z" itemprop="datePublished">2017-03-14</time>
 </a>
 
 
@@ -266,7 +266,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      What is LazyMan
+      Regular Expression
     </h1>
   
 
@@ -276,10 +276,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Interview/">Interview</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -287,21 +283,80 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Knowing LazyMan from an interview in WeChat, so I want to record some knowledge of LazyMan.<br><a id="more"></a></p>
-<blockquote>
-<p>Quote: <a href="">https://github.com/easonhan007/lazyman</a></p>
+        <p>All method of regular expression including checking number, character and special requirement.<br><a id="more"></a></p>
+<h2 id="Check-The-Expression-of-Number"><a href="#Check-The-Expression-of-Number" class="headerlink" title="Check The Expression of Number"></a>Check The Expression of Number</h2><blockquote>
+<p> 1 Number：^ [0-9] * $</p>
+<p> 2 N place Num：^ \ d{n}$</p>
+<p> 3 A t least n place Num：^ \ d{n,}$</p>
+<p> 4 m to n place Num：^ \ d{m,n}$</p>
+<p> 5 0 and Non-zero Num：^(0|[1-9][0-9]* )$</p>
+<p> 6 Non-zero initial Num with two decimals：^([1-9][0-9] * )+(.[0-9]{1,2})?$</p>
+<p> 7 Positive or Negative Num with 1 to 2 decimals：^( \ -)?\ d+(\ .\ d{1,2})?$</p>
+<p> 8 Positive, Negative and Decimal Num：^(\ -| \ +)?\ d+( \ . \ d+)?$</p>
+<p> 9 Positive Real Num with two decimals：^ [0-9]+(.[0-9]{2})?$</p>
+<p>10 Positive Real Num with 1 to 3 decimals：^ [0-9]+(.[0-9]{1,3})?$</p>
+<p>11 Non-zero Positive Integer：^ [1-9] \ d <em> $ or ^([1-9][0-9]</em> ){1,3}$ or ^ \ + ? [1-9][0-9]* $</p>
+<p>12 Non-zero Negative Integer：^ \ -[1-9][]0-9”<em> $ or ^-[1-9]\ d</em> $</p>
+<p>13 Nonnegative Integer：^\ d+$ or  ^ [1-9]\ d * | 0$</p>
+<p>14 Nonpositive Integer：^-[1-9]\ d*| 0$ or ^((-\ d+)|(0+))$</p>
+<p>15 Nonnegative Floating Number：^\ d+(\ .\ d+)?$ or ^ [1-9]\ d <em> \ . \ d </em> |0 \ .\ d<em> [1-9]\ d </em> |0? \ .0+|0$</p>
+<p>16 Nonpositive Floating Number：^((-\ d+( \ .\ d+)?)|(0+(\ . 0+)?))$ or ^(-([1-9]\ d<em> \ . \ d </em> |0 \ .\ d <em> [1-9]\ d </em> ))|0?\ .0+|0$</p>
+<p>17 Positive Floating Number：^ [1-9]\ <em> \ .\ d</em>|0\ .\ d<em>[1-9]\ d</em>$ or ^(([0-9]+\ .[0-9]<em> [1-9][0-9] </em> )|([0-9]<em> [1-9][0-9]</em> \ .[0-9]+)|([0-9]<em> [1-9][0-9]</em> ))$</p>
+<p>18 Negative Floating Number：^-([1-9]\ d<em>.\ d</em>|0\ .\ d<em>[1-9]\ d</em>)$ or ^(-(([0-9]+ \ .[0-9]<em> [1-9][0-9]</em> )|([0-9]<em> [1-9][0-9]</em> \ .[0-9]+)|([0-9]<em> [1-9][0-9]</em> )))$</p>
+<p>19 Floating Number：^(-?\ d+)(\ .\ d+)?$ or ^-?([1-9]\ d<em> \ . \ d</em> |0\ .\ d<em> [1-9]\ d</em>|0? \ .0+|0)$</p>
 </blockquote>
-<h2 id="Introduction-of-LazyMan"><a href="#Introduction-of-LazyMan" class="headerlink" title="Introduction of LazyMan"></a>Introduction of LazyMan</h2><blockquote>
-<ol>
-<li><p>Lazyman is a simple web automation test framework using selenium-webdriver, watir-webdriver, page-object and rspec.</p>
-</li>
-<li><p>Page Object: Page object abstract  each test page as a Page class and encapsulate the test objects(page element) of the page and basic test steps(logic action). In order to increase readability, reusability and consistency of code.</p>
-</li>
-<li><p>Rspect: Rspect is one of test plug-in in Ruby.</p>
+<h2 id="Check-The-Expression-of-Character"><a href="#Check-The-Expression-of-Character" class="headerlink" title="Check The Expression of Character"></a>Check The Expression of Character</h2><blockquote>
+<p> 1 CN：^[\ u4e00-\ u9fa5]{0,}$</p>
+<p> 2 EN and Num：^[A-Za-z0-9]+$ or ^[A-Za-z0-9]{4,40}$</p>
+<p> 3 All characters with 3-20 in length：^.{3,20}$</p>
+<p> 4 A string of 26 letters：^[A-Za-z]+$</p>
+<p> 5 A string of 26 uppercase letters：^[A-Z]+$</p>
+<p> 6 A string of 26 lowercase letters<br>：^[a-z]+$</p>
+<p> 7 A string of numbers and 26 letters：^[A-Za-z0-9]+$</p>
+<p> 8 A string consisting of numbers, 26 letters, or underlines：^\ w + $ or  ^ \ w{3,20}$</p>
+<p> 9 Chinese, English, numbers include underline：^[\ u4E00-\ u9FA5A-Za-z0-9_]+$</p>
+<p>10 Chinese, English, numbers but not underlined symbols<br>：^[\ u4E00-\ u9FA5A-Za-z0-9]+$ or ^[\ u4E00-\ u9FA5A-Za-z0-9]{2,20}$</p>
+<p>11 Can be entered with ^%&amp;’,;=? $ \ “ characters：[^%&amp;’,;=?$\ x22]+</p>
+<p>12 Prohibit input containing “~” character：[^~\ x22]+</p>
+</blockquote>
+<h2 id="Special-Demand-Expression"><a href="#Special-Demand-Expression" class="headerlink" title="Special Demand Expression"></a>Special Demand Expression</h2><blockquote>
+<p> 1 Email address：^\ w+([-+.]\ w+)<em> @\ w+([-.]\ w+)</em> \ . \ w+([-.]\ w+)* $</p>
+<p> 2 Domain name：[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?</p>
+<p> 3 InternetURL：[a-zA-z]+://[^\ s]<em> 或 ^<a href="http://([\" target="_blank" rel="external">http://([\</a> w-]+\ .)+[\ w-]+(/[\ w-./?%&amp;=]</em> )?$</p>
+<h3 id="Only-In-China"><a href="#Only-In-China" class="headerlink" title="Only In China"></a>Only In China</h3><p> 4 手机号码：^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$</p>
+<p> 5 电话号码(“XXX-XXXXXXX”、”XXXX-XXXXXXXX”、”XXX-XXXXXXX”、”XXX-XXXXXXXX”、”XXXXXXX”和”XXXXXXXX)：^(\ (\ d {3,4}-)|\ d{3.4}-)?\ d{7,8}$</p>
+<p> 6 国内电话号码(0511-4405222、021-87888822)：\ d{3}-\ d{8}|\ d{4}-\ d{7}</p>
+<p> 7 身份证号(15位、18位数字)：^\ d{15}|\ d{18}$</p>
+<p> 8 短身份证号码(数字、字母x结尾)：^([0-9]){7,18}(x|X)?$ 或 ^\ d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$</p>
+<p> 9 Whether the account is legal(The letter begins，Allow 5-16 bytes，Allow character, number and underline)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$</p>
+<p>10 Password(The letter begins，The length is between 6 and 18，Only contains character、number and underline)：^[a-zA-Z]\w{5,17}$</p>
+<p>11 Strong password(Must Contains a combination of uppercase and lowercase letters and numbers，<br>Can not use special characters，The length is between 8 and 10)：^(?=.<em> \ d)(?=.</em> [a-z])(?=.* [A-Z]).{8,10}$  </p>
+<p>12 Date format：^\ d{4}-\ d{1,2}-\ d{1,2}</p>
+<p>13 12 Months(01～09 and 1～12)：^(0?[1-9]|1[0-2])$</p>
+<p>14 31 Days in a month(01～09 and 1～31)：^((0?[1-9])|((1|2)[0-9])|30|31)$</p>
+<h3 id="Money-input-format"><a href="#Money-input-format" class="headerlink" title="Money input format"></a>Money input format</h3><ol>
+<li><p>10000.00 or 10,000.00 or 10000 or 10,000：^[1-9][0-9]* $</p>
+<p>2.Better way that a character “0” does not pass：^(0|[1-9][0-9]* )$</p>
+<p>3.You can allow a negative sign at the beginning：^(0|-?[1-9][0-9]* )$</p>
+<p>4.Possible decimal part：^[0-9]+(.[0-9]+)?$</p>
+<p>5.There should be at least one digit after the decimal point：^[0-9]+(.[0-9]{2})?$</p>
+<p>6.It can also change to this format that allow one to two decimals place：^[0-9]+(.[0-9]{1,2})?$</p>
+<p>7.Comma in number：^[0-9]{1,3}(,[0-9]{3})* (.[0-9]{1,2})?$</p>
+<p>8.One to three number, followed by any comma + three numbers, comma is optional, not necessary^([0-9]+|[0-9]{1,3}(,[0-9]{3})* )(.[0-9]{1,2})?$</p>
 </li>
 </ol>
+<p>24 xml files：^([a-zA-Z]+-?)+[a-zA-Z0-9]+\ \ .[x|X][m|M][l|L]$</p>
+<p>25 Regular expression of Chinese characters：[\ u4e00-\ u9fa5]</p>
+<p>26 Double-byte characters：[^\ x00-\ xff]    (Including Chinese characters，can be used to calculate the length of the string(A double-byte character length calculates as 2，ASCII character as 1))</p>
+<p>27 The regular expression of blank lines：\ n \ s*\ r  (Can be used to delete blank lines)</p>
+<p>28 Regular Expressions for HTML tags：&lt;(\S<em>?)[^&gt;]</em> &gt;.<em> ?&lt;/\ 1&gt;|&lt;.</em> ? /&gt;</p>
+<p>29 The regular expression of the first and last whitespace characters：^\ s<em>|\ s</em>$ or (^\ s<em> )|(\ s</em>$)    (Can be used to delete the first line of the end of the blank characters(<br>Including spaces, tabs, page breaks, and so on))</p>
+<p>30 QQ：[1-9][0-9]{4,}    (Start from 10000)</p>
+<p>31 China zip code：[1-9]\ d{5}(?!\ d)    (6 digits)<br>USA zip code：[0-9]\ d{4}(?!\ d)    (5 digits)</p>
+<p>32 IP address：\ d+\ .\ d+\ .\ d+\ .\ d+  (It is useful to extract IP addresses)</p>
+<p>33 IP address：((?:(?:25[0-5]|2[0-4]\ \ d|[01]?\ \d?</p>
 </blockquote>
-<h2 id="How-to-achieve-LazyMan"><a href="#How-to-achieve-LazyMan" class="headerlink" title="How to achieve LazyMan"></a>How to achieve LazyMan</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">function _LazyMan(_name) &#123;</div><div class="line">    var _this = this;</div><div class="line">    _this.tasks = [];</div><div class="line">    _this.tasks.push(function() &#123;</div><div class="line">        console.log(&apos;Hi! This is &apos; + _name + &apos;!&apos;);</div><div class="line">        // this is window，so it needs to cache this</div><div class="line">        _this.next();</div><div class="line">    &#125;);</div><div class="line">    setTimeout(function() &#123;</div><div class="line">        _this.next();</div><div class="line">    &#125;, 0);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// &quot;this&quot; in push function and &quot;this&quot; in the setTimeout function all point to global scope，so it needs to cache present this point</div><div class="line">_LazyMan.prototype.next = function() &#123;</div><div class="line">    var _fn = this.tasks.shift();</div><div class="line">    _fn &amp;&amp; _fn();</div><div class="line">&#125;</div><div class="line">_LazyMan.prototype.sleep = function(_time) &#123;</div><div class="line">    var _this = this;</div><div class="line">    _this.tasks.push(function() &#123;</div><div class="line">        setTimeout(function() &#123;</div><div class="line">            console.log(&apos;Wake up after &apos; + _time);</div><div class="line">            _this.next();</div><div class="line">        &#125;, _time);</div><div class="line">    &#125;);</div><div class="line">    return _this;</div><div class="line">&#125;</div><div class="line">_LazyMan.prototype.sleepFirst = function(_time) &#123;</div><div class="line">    var _this = this;</div><div class="line">    _this.tasks.unshift(function() &#123;</div><div class="line">        setTimeout(function() &#123;</div><div class="line">            console.log(&apos;Wake up after &apos; + _time);</div><div class="line">            _this.next();</div><div class="line">        &#125;, _time);</div><div class="line">    &#125;);</div><div class="line">    return _this;</div><div class="line">&#125;</div><div class="line">_LazyMan.prototype.eat = function(_eat) &#123;</div><div class="line">    var _this = this;</div><div class="line">    _this.tasks.push(function() &#123;</div><div class="line">        console.log(&apos;Eat &apos; + _eat);</div><div class="line">        _this.next();</div><div class="line">    &#125;);</div><div class="line">    return _this;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Object Encapsulation</div><div class="line">var LazyMan = function(_name) &#123;</div><div class="line">    return new _LazyMan(_name);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Original from <a href="">http://www.cnblogs.com/zxin/archive/2013/01/26/2877765.html</a></p>
 
       
     </div>
@@ -310,13 +365,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/01/30/What-is-Lazyman/">What is LazyMan</a></p>
+        <p><span>本文标题:</span><a href="/2017/03/14/Regular-Expression/">Regular Expression</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Weidong,Diao</a></p>
-        <p><span>发布时间:</span>2017-01-30, 22:46:21</p>
-        <p><span>最后更新:</span>2017-02-01, 17:44:39</p>
+        <p><span>发布时间:</span>2017-03-14, 18:29:34</p>
+        <p><span>最后更新:</span>2017-03-14, 20:23:12</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/01/30/What-is-Lazyman/" title="What is LazyMan">http://www.diaoweidong.com/2017/01/30/What-is-Lazyman/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://www.diaoweidong.com/2017/01/30/What-is-Lazyman/　　作者: Weidong,Diao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/14/Regular-Expression/" title="Regular Expression">http://www.diaoweidong.com/2017/03/14/Regular-Expression/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.diaoweidong.com/2017/03/14/Regular-Expression/　　作者: Weidong,Diao" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -328,16 +383,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/03/Javascript-brief-summary/">
-                    Javascript brief summary
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/01/14/First-Blog/">
-                    First Blog
+                <a href="/2017/03/03/Javascript-brief-summary/">
+                    Javascript brief summary
                 </a>
             </div>
         
@@ -349,7 +398,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-of-LazyMan"><span class="toc-number">1.</span> <span class="toc-text">Introduction of LazyMan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-achieve-LazyMan"><span class="toc-number">2.</span> <span class="toc-text">How to achieve LazyMan</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-The-Expression-of-Number"><span class="toc-number">1.</span> <span class="toc-text">Check The Expression of Number</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-The-Expression-of-Character"><span class="toc-number">2.</span> <span class="toc-text">Check The Expression of Character</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Special-Demand-Expression"><span class="toc-number">3.</span> <span class="toc-text">Special Demand Expression</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Only-In-China"><span class="toc-number">3.1.</span> <span class="toc-text">Only In China</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Money-input-format"><span class="toc-number">3.2.</span> <span class="toc-text">Money input format</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -376,7 +425,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2017/01/30/What-is-Lazyman/" data-title="What is LazyMan" data-url="http://www.diaoweidong.com/2017/01/30/What-is-Lazyman/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/03/14/Regular-Expression/" data-title="Regular Expression" data-url="http://www.diaoweidong.com/2017/03/14/Regular-Expression/"></div>
     <script>
         var duoshuoQuery = {short_name:"diaoweidong"};
         var loadComment = function(){
@@ -399,15 +448,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/03/Javascript-brief-summary/" title="上一篇: Javascript brief summary">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/01/14/First-Blog/" title="下一篇: First Blog">
+            <a href="/2017/03/03/Javascript-brief-summary/" title="下一篇: Javascript brief summary">
                 <i class="fa fa-angle-right"></i>
             </a>
         
